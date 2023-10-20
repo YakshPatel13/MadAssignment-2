@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "609452743829",
+    "project_id": "madex1-36d35",
+    "storage_bucket": "madex1-36d35.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:609452743829:android:bfffe862ff32aa3eddcf9c",
+        "android_client_info": {
+          "package_name": "com.example.madex1"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBBD9LmYaI5SKFCOMxmfYV8uE3kXUsTJZ8"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
