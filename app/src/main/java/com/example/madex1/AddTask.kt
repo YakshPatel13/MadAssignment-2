@@ -28,7 +28,6 @@ class AddTask : AppCompatActivity() {
 
         binding.addtaskbtn.setOnClickListener {
             val tasknames = binding.AddTask.text.toString()
-            val descriptions = binding.description.text.toString()
             try {
 
                 if (tasknames.isNotEmpty()) {
@@ -44,7 +43,7 @@ class AddTask : AppCompatActivity() {
                                 databaseReference: DatabaseReference
                             ) {
                                 if (databaseError == null) {
-                                    Toast.makeText(this@AddTask, "Data Inserted Successfully", Toast.LENGTH_LONG).show()
+                                    Toast.makeText(this@AddTask, "Task Added Successfully", Toast.LENGTH_LONG).show()
                                 } else {
                                     Toast.makeText(this@AddTask, "Error: " + databaseError.message, Toast.LENGTH_LONG).show()
                                 }

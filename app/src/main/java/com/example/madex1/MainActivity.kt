@@ -36,7 +36,7 @@ class MainActivity : AppCompatActivity() {
 
         val adapter = TaskAdapter(taskArrayList, dbRef)
 
-        // Set the adapter to the RecyclerView
+
         userRecyclerView.adapter = adapter
 
         adapter.setOnItemClickListener(object : TaskAdapter.OnItemClickListener {
@@ -68,7 +68,6 @@ class MainActivity : AppCompatActivity() {
             }
 
             override fun onCancelled(error: DatabaseError) {
-                // Handle error if needed
             }
         })
     }

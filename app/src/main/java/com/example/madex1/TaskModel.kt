@@ -1,11 +1,10 @@
 package com.example.madex1
 
 data class TaskModel(
-    val taskId: String = "", // Unique identifier for the task
-    val taskName: String = "", // Name of the task
-    val isChecked: Boolean = false // Whether the task is checked or not
+    val taskId: String = "",
+    val taskName: String = "",
+    val isChecked: Boolean = false
 ) {
-    // Default (no-argument) constructor
     constructor() : this("", "", false)
 }
 
