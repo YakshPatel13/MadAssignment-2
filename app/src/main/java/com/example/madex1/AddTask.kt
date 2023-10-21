@@ -7,6 +7,9 @@ import com.example.madex1.databinding.ActivityAddTaskBinding
 import com.google.firebase.database.DatabaseReference
 import com.google.firebase.database.FirebaseDatabase
 import com.google.firebase.database.DatabaseError
+import java.text.SimpleDateFormat
+import java.util.Date
+import java.util.Locale
 
 class AddTask : AppCompatActivity() {
 
@@ -21,19 +24,20 @@ class AddTask : AppCompatActivity() {
 
         // Initialize Firebase Database
         database = FirebaseDatabase.getInstance()
-        databaseReference = database.getReference("Users") // Adjust the path to your database
+        databaseReference = database.getReference("Users")
 
         binding.addtaskbtn.setOnClickListener {
-
             val tasknames = binding.AddTask.text.toString()
             val descriptions = binding.description.text.toString()
-
             try {
 
                 if (tasknames.isNotEmpty()) {
-                    val Tasks = TaskModel(tasknames)
 
-                    databaseReference.child(tasknames).setValue(Tasks,
+
+                    val taskid = generateUniqueTaskID()
+                    val Tasks = TaskModel(taskid,tasknames)
+
+                    databaseReference.child(taskid).setValue(Tasks,
                         object : DatabaseReference.CompletionListener {
                             override fun onComplete(
                                 databaseError: DatabaseError?,
@@ -56,5 +60,11 @@ class AddTask : AppCompatActivity() {
             val intent = Intent(this, MainActivity::class.java)
             startActivity(intent)
         }
+    }
+
+    private fun generateUniqueTaskID(): String {
+        val timestamp = SimpleDateFormat("yyyyMMdd_HHmmss", Locale.getDefault()).format(Date())
+        return "task_$timestamp"
+
     }
 }

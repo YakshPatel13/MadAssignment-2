@@ -42,11 +42,11 @@ class MainActivity : AppCompatActivity() {
         adapter.setOnItemClickListener(object : TaskAdapter.OnItemClickListener {
             override fun onCheckboxClick(position: Int, isChecked: Boolean) {
                 if (isChecked) {
-                    val taskId = taskArrayList[position].taskName
+                    val taskId = taskArrayList[position].taskId
                     dbRef.child(taskId).removeValue()
                 }
             }
-            
+
         })
 
         getTaskData()

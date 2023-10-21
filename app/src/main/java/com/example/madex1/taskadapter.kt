@@ -1,5 +1,6 @@
 package com.example.madex1
 
+import android.content.Intent
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -7,6 +8,7 @@ import android.widget.CheckBox
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 import com.example.madex1.TaskModel
+import com.google.android.material.floatingactionbutton.FloatingActionButton
 import com.google.firebase.database.DatabaseReference
 
 class TaskAdapter(
@@ -36,11 +38,18 @@ class TaskAdapter(
     override fun onBindViewHolder(holder: MyViewHolder, position: Int) {
         val currentTask = taskList[position]
         holder.bind(currentTask)
+        holder.editButton.setOnClickListener{
+            val context = holder.itemView.context
+            val intent = Intent(context, EditTask::class.java)
+            intent.putExtra("taskId", currentTask.taskId)
+            intent.putExtra("taskName", currentTask.taskName)
+            context.startActivity(intent)
+        }
     }
 
     inner class MyViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
         private val taskCheckBox: CheckBox = itemView.findViewById(R.id.todoCheckBox)
-
+        val editButton: FloatingActionButton = itemView.findViewById(R.id.editbtn)
         fun bind(task: TaskModel) {
             taskCheckBox.text = task.taskName
             taskCheckBox.isChecked = task.isChecked

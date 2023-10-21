@@ -8,9 +8,10 @@
     android:layout_marginHorizontal="16dp"
     android:layout_marginVertical="8dp">
 
-    <RelativeLayout
+    <LinearLayout
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:orientation="horizontal"
         android:padding="8dp">
 
         <CheckBox
@@ -21,8 +22,30 @@
             android:paddingStart="8dp"
 
             android:buttonTint="@android:color/holo_green_dark"
-            tools:text="Go to the market and bring vegetables immediately today."/>
+            tools:text="Go to the market a"/></LinearLayout>
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="end"
+        android:orientation="horizontal"
+        android:padding="8dp">
 
-    </RelativeLayout>
-
+    <com.google.android.material.floatingactionbutton.FloatingActionButton
+         android:layout_width="wrap_content"
+         android:layout_height="wrap_content"
+         android:layout_alignParentEnd="true"
+         app:backgroundTint="#FFFFFF"
+        android:id="@+id/editbtn"
+         android:alpha="0.3"
+         android:src="@drawable/baseline_edit_24"
+        android:onClick="editButtonClicked"
+        tools:ignore="UsingOnClickInXml" />
+    </LinearLayout>
+    <EditText
+        android:id="@+id/editTaskName"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:visibility="gone"
+        android:hint="Edit Task Name"
+        android:layout_margin="8dp" />
 </androidx.cardview.widget.CardView>
